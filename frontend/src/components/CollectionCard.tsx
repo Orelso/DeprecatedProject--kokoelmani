@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import { CardMedia, createTheme, IconButton, Typography } from "@mui/material";
+import { CardMedia, IconButton, Typography } from "@mui/material";
 import { DeleteOutlined } from "@mui/icons-material";
 import { makeStyles } from '@mui/styles';
 import { AnyCardCollection } from 'kokoelmani-shared/dist';

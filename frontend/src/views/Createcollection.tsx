@@ -37,16 +37,16 @@ export default function Createcollection() {
   const [year, setYear] = useState('')
   const [quantity, setQuantity] = useState('') 
   const [category, setCategory] = useState('comic-book')
-  const [set, setSet] = useState('')
-  const [condition, setCondition] = useState('')
+  // const [set, setSet] = useState('')
+  // const [condition, setCondition] = useState('')
 
   const [newItemError, setNewItemError] = useState(false) // 103
   const [costError, setCostError] = useState(false)
   const [brandManError, setBrandManError] = useState(false) // 103
   const [yearError, setYearError] = useState(false)
   const [quantityError, setQuantityError] = useState(false)
-  const [setError, setSetError] = useState(false)
-  const [conditionError, setConditionError] = useState(false)
+  // const [setError, setSetError] = useState(false)
+  // const [conditionError, setConditionError] = useState(false)
 
   
   const handleTheSubmit = (e: any) => {
@@ -58,23 +58,23 @@ export default function Createcollection() {
     setYearError(false)
     setQuantityError(false)
 
-    if (newItem == '') { 
+    if (newItem === '') { 
       setNewItemError(true) 
     }
 
-    if (cost == '') { 
+    if (cost ==='') { 
       setCostError(true) 
     }
 
-    if (brandMan == '') { 
+    if (brandMan === '') { 
       setBrandManError(true) 
     }
 
-    if (year == '') { 
+    if (year === '') { 
       setYearError(true) 
     }
 
-    if (quantity == '') {
+    if (quantity === '') {
       setQuantityError(true)
     }
 

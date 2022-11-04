@@ -1,9 +1,7 @@
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { AppBar, TextField, Toolbar } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import {useNavigate, useLocation } from "react-router-dom";
-import List from "@mui/material/List";
+import { AppBar, Toolbar } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -13,12 +11,14 @@ import SavingsIcon from "@mui/icons-material/Savings";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNumberedRtlOutlined";
+import { pink } from "@mui/material/colors";
 
 const useStyles = makeStyles((theme) => {
   return {
     /* toolbar: theme.mixins.toolbar, */
     appbar: {
       marginTop: -15,
+      
     },
   };
 });
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => {
 const Layout: React.FC = ({ children }) => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const menuItems = [
     {

@@ -3,12 +3,12 @@ import { Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Typog
 import { makeStyles } from "@mui/styles";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { experimentalStyled as styled } from '@mui/material/styles';
+// import { experimentalStyled as styled } from '@mui/material/styles';
 import StraightIcon from '@mui/icons-material/Straight';
 import {CardMedia} from '@mui/material';
 import SouthIcon from '@mui/icons-material/South';
 // import MoveStuffAround from '../components/Ticker';
-import { Theme } from '@mui/material/styles';
+// import { Theme } from '@mui/material/styles';
 
 
 
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => {
   page: {
       background: '#E5E4E2',
       width: '100%',
-      /* padding: theme.spacing(1) */
+      // padding: theme.spacing(1) 
   },
   featured: {
     /* padding: theme.spacing(8) */
@@ -55,11 +55,11 @@ export default function Home() {
 
   return (
     <div>
-        <Typography className={classes.page}variant='h1' color='#ff7961' align='center'>
+        <Typography sx={{mt: 6}} className={classes.page} variant='h1' color='#ff7961' align='center'>
           Kokoelmani
         </Typography>
         {/* <MoveStuffAround />  */}
-        <Typography className={classes.featured} variant='h4' sx={{color: 'green'}} align='center'>
+        <Typography className={classes.featured} variant='h4' sx={{color: 'green', mt: 6}} align='center'>
           Featured High's of the Day
         </Typography>
         <Box
@@ -69,7 +69,7 @@ export default function Home() {
         flexWrap: 'wrap',
         '& > :not(style)': {
           m: 1,
-          width: 318,
+          width: 350,
           height: 430,
           backgroundColor: '#efe4e2',
         },
@@ -106,7 +106,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Pokemon</TableCell>
+              <TableCell>Poke</TableCell>
           </TableHead>
           <TableBody>
           {rowsup.map((row) => (
@@ -116,7 +116,7 @@ export default function Home() {
             >
                <CardMedia 
                   sx={{paddingTop: '98%'}}
-                  image="https://lorempokemon.fakerapi.it/pokemon/852"
+                  image="https://lorempokemon.fakerapi.it/pokemon"
                   title="Image title"
                />
               <TableCell component="th" scope="row">
@@ -162,7 +162,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Comic Books</TableCell>
+              <TableCell>Comic</TableCell>
           </TableHead>
           <TableBody>
           {rowsup.map((row) => (
@@ -190,7 +190,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Digimon</TableCell>
+              <TableCell>Digi</TableCell>
           </TableHead>
           <TableBody>
           {rowsup.map((row) => (
@@ -217,7 +217,7 @@ export default function Home() {
       
     </Box>
 
-    <Typography className={classes.featured} variant='h4'sx={{color: 'red'}} align='center'>
+    <Typography className={classes.featured} variant='h4'sx={{color: 'red', mt: 6}} align='center'>
           Featured Low's of the Day
         </Typography>
 
@@ -229,7 +229,7 @@ export default function Home() {
         flexWrap: 'wrap',
         '& > :not(style)': {
           m: 1,
-          width: 318,
+          width: 350,
           height: 430,
           backgroundColor: '#efe4e2',
         },
@@ -266,7 +266,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Pokemon</TableCell>
+              <TableCell>Poke</TableCell>
           </TableHead>
           <TableBody>
           {rowsdown.map((row) => (
@@ -322,7 +322,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Comic Books</TableCell>
+              <TableCell>Comic</TableCell>
           </TableHead>
           <TableBody>
           {rowsdown.map((row) => (
