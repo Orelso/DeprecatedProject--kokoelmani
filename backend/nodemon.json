@@ -1,0 +1,12 @@
+{
+    "watch": [
+        "src",
+        "../packages"
+    ],
+    "delay": "2500",
+    "ext": "ts",
+    "ignore": [
+        "src/**/*.spec.ts"
+    ],
+    "exec": "node --inspect=0.0.0.0:9465 --expose-gc --inspect -r ts-node/register -r source-map-support/register ./src/service.ts"
+}
