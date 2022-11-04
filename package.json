@@ -1,8 +1,8 @@
 {
-    "name": "react-express-typescript-monorepo",
+    "name": "kokoelmani",
     "private": true,
     "version": "0.0.1",
-    "description": "react express typescript monorepo",
+    "description": "kokoelmani",
     "main": "index.js",
     "scripts": {
         "build:shared": "npm run build -w shared",
@@ -23,7 +23,7 @@
     "engineStrict": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mharj/react-express-typescript-monorepo.git"
+        "url": "git+https://github.com/Orelso/kokoelmani.git"
     },
     "keywords": [
         "react",
@@ -31,7 +31,7 @@
         "typescript",
         "monorepo"
     ],
-    "author": "mharj",
+    "author": "orelso",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/mharj/react-express-typescript-monorepo/issues"

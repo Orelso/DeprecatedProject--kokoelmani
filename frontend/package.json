@@ -1,5 +1,5 @@
 {
-    "name": "react-typescript-base",
+    "name": "kokoelmani-frontend",
     "version": "1.0.0",
     "description": "Basic Typescript React base project (I18N, Helmet, HashRouter, redux, persist, loadable)",
     "private": true,
