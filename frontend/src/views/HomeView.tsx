@@ -116,7 +116,7 @@ export default function Home() {
             >
                <CardMedia 
                   sx={{paddingTop: '98%'}}
-                  image="https://lorempokemon.fakerapi.it/pokemon"
+                  image="https://lorempokemon.fakerapi.it/pokemon/852"
                   title="Image title"
                />
               <TableCell component="th" scope="row">
