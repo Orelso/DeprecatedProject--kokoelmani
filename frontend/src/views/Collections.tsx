@@ -25,19 +25,15 @@ export default function Collections() {
 
 
   return (
-    <Container>
+    <Container sx={{mt: 6}}>
+      {/* <h1>Your Collection</h1> */}
         <Grid container spacing={10}>
       {collections.map(collection => (
         <Grid item key={collection.id} xs={12} sm={8} md={6} lg={4}>
             <CollectionCard collection={collection} onDelete={handleDelete}/> 
-            {/* <CollectionCard>{ collection.category } handleDelete={handleDelete}</CollectionCard> 
-            <CollectionCard>{ collection.cost } handleDelete={handleDelete}</CollectionCard> 
-            <CollectionCard>{ collection.brandMan } handleDelete={handleDelete}</CollectionCard> 
-            <CollectionCard>{ collection.year } handleDelete={handleDelete}</CollectionCard> 
-            <CollectionCard>{ collection.set } handleDelete={handleDelete}</CollectionCard> */}
-            </Grid>
+        </Grid>
       ))}
-      </Grid>
+        </Grid>
     </Container>
   )
 }

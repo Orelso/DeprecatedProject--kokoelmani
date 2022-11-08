@@ -116,7 +116,7 @@ export default function Home() {
             >
                <CardMedia 
                   sx={{paddingTop: '98%'}}
-                  image="https://lorempokemon.fakerapi.it/pokemon/852"
+                  image="https://lorempokemon.fakerapi.it/pokemon/452"
                   title="Image title"
                />
               <TableCell component="th" scope="row">
@@ -350,7 +350,7 @@ export default function Home() {
       <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
           <TableHead>
-              <TableCell>Digimon</TableCell>
+              <TableCell>Digi</TableCell>
           </TableHead>
           <TableBody>
           {rowsdown.map((row) => (

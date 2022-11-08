@@ -10,7 +10,7 @@ npm i -workspaces
 npm run dev:shared
 npm run dev:backend
 npm run dev:frontend
-npm run start -w frontend *
+npm run start -w frontend 
 ```
 
 - [Backend](./backend/README.md)
