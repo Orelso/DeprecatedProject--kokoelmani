@@ -23,43 +23,39 @@ import { visuallyHidden } from '@mui/utils';
 import SpanningTable from '../components/WalletTable';
 
 interface Data {
-  calories: number;
-  carbs: number;
-  fat: number;
+  Qty: number;
+  yesterdaysPrice: number;
+  lastWeeksPrice: string;
   name: string;
-  protein: number;
+  currentPrice: number;
 }
 
 function createData(
   name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  Qty: number,
+  lastWeeksPrice: string,
+  yesterdaysPrice: number,
+  currentPrice: number,
 ): Data {
   return {
     name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    Qty,
+    lastWeeksPrice,
+    yesterdaysPrice,
+    currentPrice,
   };
 }
 
 const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
+  createData('Black Lotus', 1, 'MTG Card', 44000, 43000),
+  createData('Doom Blade', 50, 'MTG Card', .51, .53),
+  createData('Pikachu', 10, 'Pokemon Card', 1.2, 1.25),
+  createData('Charizard', 5, 'Pokemon Card', 120, 110),
+  createData('Dark Magician', 6, 'Yu-Gi-Oh Card', 26, 35),
+  createData('SummonSkull', 22, 'Yu-Gi-Oh Card', 18, 17),
+  createData('Angelmon', 3, 'Digimon Card', 46, 45),
+  createData('Agumon', 375, 'Digimon Card', 10, 10),
+ 
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -112,31 +108,31 @@ const headCells: readonly HeadCell[] = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'Select all',
   },
   {
-    id: 'calories',
+    id: 'Qty',
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Qty.',
   },
   {
-    id: 'fat',
+    id: 'lastWeeksPrice',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'Last Weeks Price',
   },
   {
-    id: 'carbs',
+    id: 'yesterdaysPrice',
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'Yesterdays Price',
   },
   {
-    id: 'protein',
+    id: 'currentPrice',
     numeric: true,
     disablePadding: false,
-    label: 'Protein (g)',
+    label: 'Current Price',
   },
 ];
 
@@ -158,7 +154,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead>
+    <TableHead >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -209,6 +205,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
       sx={{
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
+        mt: 6,
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
             alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
@@ -231,7 +228,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Your Money
         </Typography>
       )}
       {numSelected > 0 ? (
@@ -253,7 +250,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function EnhancedTable() {
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('Qty');
   const [selected, setSelected] = React.useState<readonly string[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
@@ -335,8 +332,6 @@ export default function EnhancedTable() {
               rowCount={rows.length}
             />
             <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-              rows.sort(getComparator(order, orderBy)).slice() */}
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
@@ -370,10 +365,10 @@ export default function EnhancedTable() {
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="right">{row.Qty}</TableCell>
+                      <TableCell align="right">{row.lastWeeksPrice}</TableCell>
+                      <TableCell align="right">${row.yesterdaysPrice}</TableCell>
+                      <TableCell align="right">${row.currentPrice}</TableCell>
                     </TableRow>
                   );
                 })}

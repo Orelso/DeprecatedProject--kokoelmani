@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import StraightIcon from '@mui/icons-material/Straight';
 import {CardMedia} from '@mui/material';
 import SouthIcon from '@mui/icons-material/South';
+import MoveStuffAround from '../components/Ticker';
 // import MoveStuffAround from '../components/Ticker';
 // import { Theme } from '@mui/material/styles';
 
@@ -58,7 +59,7 @@ export default function Home() {
         <Typography sx={{mt: 6}} className={classes.page} variant='h1' color='#ff7961' align='center'>
           Kokoelmani
         </Typography>
-        {/* <MoveStuffAround />  */}
+        <MoveStuffAround />
         <Typography className={classes.featured} variant='h4' sx={{color: 'green', mt: 6}} align='center'>
           Featured High's of the Day
         </Typography>
