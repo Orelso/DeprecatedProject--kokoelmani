@@ -12,6 +12,8 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNumberedRtlOutlined";
 import { pink } from "@mui/material/colors";
+import CustomizedInputBase from "./SearchBar";
+
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -75,6 +77,7 @@ const Layout: React.FC = ({ children }) => {
               </ListItem>
           ))}
         </Toolbar>
+        <CustomizedInputBase />
       </AppBar>
   );
 };
