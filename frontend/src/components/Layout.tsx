@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { AppBar, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -77,7 +77,17 @@ const Layout: React.FC = ({ children }) => {
               </ListItem>
           ))}
         </Toolbar>
+        <div style={{marginBottom: -20}}>
         <CustomizedInputBase />
+        <Button  sx={{fontSize: 16,'&:hover': {backgroundColor: '#124116'}, marginLeft: 250, marginTop: -10}} 
+        type="submit" 
+        variant='contained' 
+        >Log In</Button>
+         <Button  sx={{fontSize: 16,'&:hover': {backgroundColor: '#124116'}, marginTop: -10}} 
+        type="submit" 
+        variant='contained' 
+        >Sign Up</Button>
+        </div>
       </AppBar>
   );
 };

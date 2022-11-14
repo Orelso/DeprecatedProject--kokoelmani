@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <div>
-        <Typography sx={{mt: 6}} className={classes.page} variant='h1' color='#ff7961' align='center'>
+        <Typography sx={{mt: 11}} className={classes.page} variant='h1' color='#ff7961' align='center'>
           Kokoelmani
         </Typography>
         <MoveStuffAround />

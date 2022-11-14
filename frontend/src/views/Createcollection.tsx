@@ -96,7 +96,7 @@ export default function Createcollection() {
   return (
   
 <Container>
-    <Typography sx={{mt: 8}} className={classes.title} variant="h2" component='h2' gutterBottom align='center'>
+    <Typography sx={{mt: 12}} className={classes.title} variant="h2" component='h2' gutterBottom align='center'>
         Add to my Collection
     </Typography>
 

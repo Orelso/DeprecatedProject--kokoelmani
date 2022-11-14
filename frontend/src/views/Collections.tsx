@@ -25,7 +25,7 @@ export default function Collections() {
 
 
   return (
-    <Container sx={{mt: 8}}>
+    <Container sx={{mt: 12}}>
       {/* <h1>Your Collection</h1> */}
         <Grid container spacing={10}>
       {collections.map(collection => (
