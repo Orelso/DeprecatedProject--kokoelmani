@@ -64,6 +64,7 @@ const Layout: React.FC = ({ children }) => {
   ];
 
   return (
+    <div>
       <AppBar className={classes.appbar}>
         <Toolbar>
           {menuItems.map((item) => (
@@ -89,6 +90,7 @@ const Layout: React.FC = ({ children }) => {
         >Sign Up</Button>
         </div>
       </AppBar>
+      </div>
   );
 };
 

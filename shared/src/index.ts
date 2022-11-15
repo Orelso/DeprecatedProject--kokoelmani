@@ -21,6 +21,7 @@ export interface PokemonCollection extends BaseCollection {
     quantity: number;
     year: number;
     cost: number;
+    condition: string;
 }
 
 export interface MtgCollection extends BaseCollection {
@@ -32,6 +33,8 @@ export interface MtgCollection extends BaseCollection {
     quantity: number;
     year: number;
     cost: number;
+    condition: string;
+
 }
 
 export interface DigimonCollection extends BaseCollection {
@@ -43,6 +46,7 @@ export interface DigimonCollection extends BaseCollection {
     quantity: number;
     year: number;
     cost: number;
+    condition: string;
 }
 
 export interface YugiohCollection extends BaseCollection {
@@ -54,6 +58,8 @@ export interface YugiohCollection extends BaseCollection {
     quantity: number;
     year: number;
     cost: number;
+    condition: string;
+
 }
 
 export interface OthertcgCollection extends BaseCollection {
@@ -65,6 +71,8 @@ export interface OthertcgCollection extends BaseCollection {
     quantity: number;
     year: number;
     cost: number;
+    condition: string;
+
 }
 export type AnyCardCollection = PokemonCollection | MtgCollection | DigimonCollection | YugiohCollection | OthertcgCollection
 

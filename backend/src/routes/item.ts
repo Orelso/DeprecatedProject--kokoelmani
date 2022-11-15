@@ -11,6 +11,7 @@ const items: AnyCardCollection[] =  [
 		"quantity": 2,
 		"cost": 475345,
 		"year": 1990,
+		"condition": "new"
 	  },
 	  {
 		'type': 'mtgcard',
@@ -21,6 +22,8 @@ const items: AnyCardCollection[] =  [
 		"quantity": 2,
 		"cost": 475345,
 		"year": 1992,
+		"condition": "new"
+
 	  },
 	  {
 		'type': 'digimoncard',
@@ -31,6 +34,8 @@ const items: AnyCardCollection[] =  [
 		"quantity": 2,
 		"cost": 475345,
 		"year": 1992,
+		"condition": "new"
+
 	  },
 	  {
 		'type': 'yugiohcard',
@@ -41,6 +46,8 @@ const items: AnyCardCollection[] =  [
 		"quantity": 2,
 		"cost": 475345,
 		"year": 1992,
+		"condition": "new"
+
 	  },
 	  
 	]

@@ -10,6 +10,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import {useNavigate} from 'react-router-dom';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
 
 
 const useStyles = makeStyles({
@@ -31,9 +33,10 @@ const useStyles = makeStyles({
 export default function Createcollection() {
   const classes = useStyles();
   const navigate = useNavigate()
+
   const [newItem, setNewItem] = useState('') 
   const [cost, setCost] = useState('') 
-  const [brandMan, setBrandMan] = useState('') 
+  const [language, setLanguage] = useState('') 
   const [year, setYear] = useState('')
   const [quantity, setQuantity] = useState('') 
   const [category, setCategory] = useState('comic-book')
@@ -42,7 +45,7 @@ export default function Createcollection() {
 
   const [newItemError, setNewItemError] = useState(false) // 103
   const [costError, setCostError] = useState(false)
-  const [brandManError, setBrandManError] = useState(false) // 103
+  const [languageError, setLanguageError] = useState(false) // 103
   const [yearError, setYearError] = useState(false)
   const [quantityError, setQuantityError] = useState(false)
   // const [setError, setSetError] = useState(false)
@@ -54,7 +57,7 @@ export default function Createcollection() {
 
     setNewItemError(false)
     setCostError(false)
-    setBrandManError(false)
+    setLanguageError(false)
     setYearError(false)
     setQuantityError(false)
 
@@ -66,8 +69,8 @@ export default function Createcollection() {
       setCostError(true) 
     }
 
-    if (brandMan === '') { 
-      setBrandManError(true) 
+    if (language === '') { 
+      setLanguageError(true) 
     }
 
     if (year === '') { 
@@ -79,11 +82,11 @@ export default function Createcollection() {
     }
 
 
-    if (newItem && brandMan && cost && year && category && quantity) {
+    if (newItem && cost && year && category && quantity && language) {
       fetch('http://localhost:8001/Collections/', {
         method: 'POST',
         headers: {"Content-type": "application/json"},
-        body: JSON.stringify({ newItem, category, cost, brandMan, year, quantity })
+        body: JSON.stringify({ newItem, category, cost, year, quantity, language })
       }).then(() => navigate('/collections')) 
     }
 
@@ -133,14 +136,14 @@ export default function Createcollection() {
           >
         </TextField>
         <TextField
-          onChange={(e)=> setBrandMan(e.target.value)}
+          onChange={(e)=> setLanguage(e.target.value)}
           sx={{marginTop: 3, marginBottom: 2, display: 'block'}}
-          label="Brand/Manufacturer"
+          label="Language"
           variant='outlined'
           color='secondary'
           fullWidth
           required // adds astrik
-          error={brandManError}
+          error={languageError}
           >
         </TextField>
         <TextField
@@ -166,9 +169,13 @@ export default function Createcollection() {
           >
         </TextField>
       
+        <FormControl sx={{marginTop: 3, marginBottom: 2, display: 'block', marginLeft: 110}}>
+        <FormControlLabel value='foil'control={<Radio />} label='Foil' />
+        <FormControlLabel value='signed'control={<Radio />} label='Signed/Autograph' />
+        </FormControl>
 
-        <FormControl sx={{marginTop: 3, marginBottom: 2, display: 'block'}}>
-        <FormLabel>Item Category</FormLabel>
+        <FormControl sx={{marginTop: -8, marginBottom: 2, display: 'block'}}>
+        <FormLabel>Category</FormLabel>
         <RadioGroup row value={category} onChange={(e) => setCategory(e.target.value)}>
         <FormControlLabel value='comic-book'control={<Radio />} label='Comic-book' />
         <FormControlLabel value='mtg'control={<Radio />} label='MTG' />
@@ -176,8 +183,12 @@ export default function Createcollection() {
         <FormControlLabel value='digimon'control={<Radio />} label='Digimon' />
         <FormControlLabel value='yugioh'control={<Radio />} label='Yu-gi-oh' />
         <FormControlLabel value='other tcg'control={<Radio />} label='Other TCG' />
+        <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+      <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+    </FormGroup>
         {/* <FormControlLabel value='sportscard'control={<Radio />} label='Sports Card' /> */}
-        <FormControlLabel value='toy'control={<Radio />} label='Toy' />
+        {/* <FormControlLabel value='toy'control={<Radio />} label='Toy' /> */}
         {/* <FormControlLabel value='nft'control={<Radio />} label='NFT' />
         <FormControlLabel value='funkopop'control={<Radio />} label='FunkoPop' /> */}
         </RadioGroup>
