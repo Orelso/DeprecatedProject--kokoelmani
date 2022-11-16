@@ -12,6 +12,7 @@ import FormLabel from '@mui/material/FormLabel';
 import {useNavigate} from 'react-router-dom';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 const useStyles = makeStyles({
@@ -104,6 +105,21 @@ export default function Createcollection() {
     </Typography>
 
     <form noValidate autoComplete='off' onSubmit={handleTheSubmit}>
+    <FormControl sx={{marginTop: 1, marginBottom: 2, display: 'block', marginLeft: 39}}>
+        {/* <FormLabel>Category</FormLabel> */}
+        <RadioGroup row value={category} onChange={(e) => setCategory(e.target.value)}>
+        <FormControlLabel value='mtg'control={<Radio />} label='MTG' />
+        <FormControlLabel value='pokemon'control={<Radio />} label='Pokemon' />
+        <FormControlLabel value='digimon'control={<Radio />} label='Digimon' />
+        <FormControlLabel value='yugioh'control={<Radio />} label='Yu-gi-oh' />
+        <FormControlLabel value='other tcg'control={<Radio />} label='Other TCG' />
+        {/* <FormControlLabel value='comic-book'control={<Radio />} label='Comic-book' /> */}
+        {/* <FormControlLabel value='sportscard'control={<Radio />} label='Sports Card' /> */}
+        {/* <FormControlLabel value='toy'control={<Radio />} label='Toy' /> */}
+        {/* <FormControlLabel value='nft'control={<Radio />} label='NFT' />
+        <FormControlLabel value='funkopop'control={<Radio />} label='FunkoPop' /> */}
+        </RadioGroup>
+        </FormControl>
         <TextField
           onChange={(e)=> setNewItem(e.target.value)}
           sx={{marginTop: 3, marginBottom: 2, display: 'block'}}
@@ -169,38 +185,26 @@ export default function Createcollection() {
           >
         </TextField>
       
-        <FormControl sx={{marginTop: 3, marginBottom: 2, display: 'block', marginLeft: 110}}>
-        <FormControlLabel value='foil'control={<Radio />} label='Foil' />
-        <FormControlLabel value='signed'control={<Radio />} label='Signed/Autograph' />
-        </FormControl>
-
-        <FormControl sx={{marginTop: -8, marginBottom: 2, display: 'block'}}>
-        <FormLabel>Category</FormLabel>
-        <RadioGroup row value={category} onChange={(e) => setCategory(e.target.value)}>
-        <FormControlLabel value='comic-book'control={<Radio />} label='Comic-book' />
-        <FormControlLabel value='mtg'control={<Radio />} label='MTG' />
-        <FormControlLabel value='pokemon'control={<Radio />} label='Pokemon' />
-        <FormControlLabel value='digimon'control={<Radio />} label='Digimon' />
-        <FormControlLabel value='yugioh'control={<Radio />} label='Yu-gi-oh' />
-        <FormControlLabel value='other tcg'control={<Radio />} label='Other TCG' />
-        <FormGroup>
-      <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-      <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
-    </FormGroup>
-        {/* <FormControlLabel value='sportscard'control={<Radio />} label='Sports Card' /> */}
-        {/* <FormControlLabel value='toy'control={<Radio />} label='Toy' /> */}
-        {/* <FormControlLabel value='nft'control={<Radio />} label='NFT' />
-        <FormControlLabel value='funkopop'control={<Radio />} label='FunkoPop' /> */}
-        </RadioGroup>
+        <FormControl sx={{marginTop: -1, marginBottom: 2, display: 'block', marginLeft: 110}}>
+        <FormControlLabel control={<Checkbox />} label="Foil" />
+        <FormControlLabel control={<Checkbox />} label="Autographed" />
         </FormControl>
 
         <Button 
-        sx={{fontSize: 16,'&:hover': {backgroundColor: 'green'}}} 
+        sx={{fontSize: 16,'&:hover': {backgroundColor: 'green'}, marginTop: -7}} 
         type="submit" 
         variant='contained' 
         endIcon={<SendOutlinedIcon/>}
         >
         Submit
+      </Button>
+      <Button 
+        sx={{fontSize: 16,'&:hover': {backgroundColor: 'green'}, marginTop: -7, marginLeft: 1}} 
+        type="submit" 
+        variant='contained' 
+        endIcon={<ClearIcon/>}
+        >
+        Clear
       </Button>
       </form>
       </Container>

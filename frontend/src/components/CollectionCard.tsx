@@ -57,7 +57,7 @@ const CollectionCard: React.FC<Props> = ({ collection, onDelete }) =>  {
     <div>
             <Card elevation={8} className={classes.test}>
                 <CardHeader 
-                    action={ // 2000
+                    action={ 
                         <IconButton onClick={() => onDelete?.(collection.id)}> 
                             <DeleteOutlined />
                         </IconButton>
