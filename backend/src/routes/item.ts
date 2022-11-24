@@ -1,58 +1,55 @@
 import {NextFunction, Request, Response, Router} from 'express';
 import {AnyCardCollection} from 'kokoelmani-shared/dist';
 
-const items: AnyCardCollection[] =  [
-	  {
-		'type': 'pokemoncard',
-		"id": 100,
-		"category": "Pokemon",
-		"newItem": "Charizard",
-		"set": "Base",
-		"quantity": 2,
-		"cost": 100000,
-		"year": 1997,
-		"condition": "new"
-	  },
-	  {
-		'type': 'mtgcard',
-		"id": 101,
-		"category": "MTG",
-		"newItem": "Black Lotus",
-		"set": "Alpha",
-		"quantity": 2,
-		"cost": 475345,
-		"year": 1992,
-		"condition": "new"
+const items: AnyCardCollection[] = [
+	{
+		id: 0,
+		category: 'Pokemon',
+		language: 'English',
+		newItem: 'Charizard',
+		set: 'Base',
+		quantity: 0,
+		cost: 100000,
+		condition: 'new',
+		type: 'card'
+	},
+	{
+		id: 1,
+		category: 'MTG',
+		language: 'English',
+		newItem: 'Black Lotus',
+		set: 'Alpha',
+		quantity: 1,
+		cost: 475345,
+		condition: 'new',
+		type: 'card'
 
-	  },
-	  {
-		'type': 'digimoncard',
-		"id": 102,
-		"category": "Digimon",
-		"newItem": "Angelmon",
-		"set": "Alpha",
-		"quantity": 2,
-		"cost": 40,
-		"year": 1999,
-		"condition": "new"
+	},
+	{
+		id: 2,
+		category: 'Digimon',
+		language: 'English',
+		newItem: 'Angelmon',
+		set: 'Alpha',
+		quantity: 2,
+		cost: 40,
+		condition: 'new',
+		type: 'card'
 
-	  },
-	  {
-		'type': 'yugiohcard',
-		"id": 103,
-		"category": "Yu-Gi-Oh",
-		"newItem": "Dark Magician",
-		"set": "Alpha",
-		"quantity": 2,
-		"cost": 20,
-		"year": 2000,
-		"condition": "new"
+	},
+	{
+		id: 3,
+		category: 'Yu-Gi-Oh',
+		language: 'English',
+		newItem: 'Dark Magician',
+		set: 'Alpha',
+		quantity: 2,
+		cost: 20,
+		condition: 'new',
+		type: 'card'
 
-	  },
-	  
-	]
-  
-
+	},
+];
 
 const router = Router();
 
@@ -61,7 +58,7 @@ const router = Router();
  */
 router.get('/', (req: Request, res: Response, next: NextFunction) => {
 	try {
-        res.json(items)
+		res.json(items);
 	} catch (err) {
 		next(err);
 	}
@@ -70,14 +67,23 @@ router.get('/', (req: Request, res: Response, next: NextFunction) => {
 /**
  * GET /api/item get item or 404 error
  */
- router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
+router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
 	try {
-		
 		const item = items.find((item) => item.id.toString() === req.params.id);
-		if (! item) {
+		if (!item) {
 			return res.sendStatus(404);
 		}
-        res.json(item)
+		res.json(item);
+	} catch (err) {
+		next(err);
+	}
+	return;
+});
+
+router.post('/', (req: Request, res: Response, next: NextFunction) => {
+	try {
+		items.push({...req.body,id:(items.slice(-1))[0].id + 1});
+		res.end();
 	} catch (err) {
 		next(err);
 	}

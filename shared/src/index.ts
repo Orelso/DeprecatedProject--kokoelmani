@@ -8,68 +8,68 @@ export interface ApiStatus {
 }
 
 export interface BaseCollection {
-    type: 'pokemoncard' | 'mtgcard' | 'digimoncard' | 'yugiohcard' | 'othertcgcard'
+    type: 'card'
 }
 
 
 export interface PokemonCollection extends BaseCollection {
-    type: 'pokemoncard';
+    type: 'card';
     id: number;
     category: string;
+    language: string;
     newItem: string;
     set?: string;
     quantity: number;
-    year: number;
     cost: number;
     condition: string;
 }
 
 export interface MtgCollection extends BaseCollection {
-    type: 'mtgcard';
+    type: 'card';
     id: number;
     category: string;
+    language: string;
     newItem: string;
     set?: string;
     quantity: number;
-    year: number;
     cost: number;
     condition: string;
 
 }
 
 export interface DigimonCollection extends BaseCollection {
-    type: 'digimoncard';
+    type: 'card';
     id: number;
     category: string;
+    language: string;
     newItem: string;
     set?: string;
     quantity: number;
-    year: number;
     cost: number;
     condition: string;
 }
 
 export interface YugiohCollection extends BaseCollection {
-    type: 'yugiohcard';
+    type: 'card';
     id: number;
     category: string;
+    language: string;
     newItem: string;
     set?: string;
     quantity: number;
-    year: number;
     cost: number;
     condition: string;
 
 }
 
 export interface OthertcgCollection extends BaseCollection {
-    type: 'othertcgcard';
+    type: 'card';
     id: number;
     category: string;
+    language: string;
     newItem: string;
     set?: string;
     quantity: number;
-    year: number;
     cost: number;
     condition: string;
 

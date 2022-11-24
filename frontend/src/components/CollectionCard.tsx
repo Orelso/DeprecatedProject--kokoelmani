@@ -14,25 +14,17 @@ const useStyles = makeStyles({
         border: (collection: any) => {
             if (collection.category === 'comic-book') {
                 return '2px solid linear-gradient(90deg, rgba(255,203,5,1) 0%, rgba(42,117,187,1) 25%, rgba(199,160,8,1) 50%, rgba(60,90,166,1) 75%);' 
-            } else if (collection.category === 'pokemon') {
-                return '2px solid green'
-            } else if (collection.category === "mtg") {
-                return '2px solid yellow'
-            } else if (collection.category === 'digimon') {
-                return "2px solid darkgreen"
-            } else if (collection.category === 'yugioh') {
-                return "2px solid brown"
-            } else if (collection.category === 'toy') {
-                return '2px solid red'
+            } else if (collection.category === 'Pokemon') {
+                return '2px solid blue'
+            } else if (collection.category === "MTG") {
+                return '2px solid brown'
+            } else if (collection.category === 'Digimon') {
+                return "2px solid yellow"
+            } else if (collection.category === 'Yu-Gi-Oh') {
+                return "2px solid purple"
             } else if (collection.category === 'other tcg') {
                 return '2px solid orange'
             } 
-            
-            // else if (collection.category === 'funkopop') {
-            //     return "2px solid pink"
-            // }else if (collection.category === 'nft') {
-            //     return '2px solid purple'
-            // }
         }
     },
 })
@@ -73,14 +65,21 @@ const CollectionCard: React.FC<Props> = ({ collection, onDelete }) =>  {
                 sx={{ padding: "1em 1em 1em 1em", objectFit: "contain", width: 300 }}
                 />
                 <CardContent>
+                    
                     <Typography variant="body2" color="textSecondary">
                         Cost:$ {collection.cost}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
-                        Year: {collection.year}
+                        Language: {collection.language}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Set: {collection.set}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
                         Quantity: {collection.quantity}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Condition: {collection.condition}
                     </Typography>
                 </CardContent>
             </Card>

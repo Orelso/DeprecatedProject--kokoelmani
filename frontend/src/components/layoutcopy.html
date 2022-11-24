@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { AppBar, Button, Grid, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItemButton, Toolbar, Typography } from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -13,6 +13,8 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNumberedRtlOutlined";
 import SearchBar from "./SearchBar";
 import { Container } from "@mui/system";
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 
 
@@ -28,10 +30,15 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
+interface Props {
+  children: React.ReactNode
+}
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<Props> = ({ children, props }): JSX: any.Element: => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   // const location = useLocation();
 
   const menuItems = [
@@ -66,14 +73,59 @@ const Layout: React.FC = ({ children }) => {
       path: "/Other",
     },
   ];
+  const drawerWidth = 240;
+  
+  
+    const handleDrawerToggle = () => {
+      setMobileOpen(!mobileOpen);
+    };
+
+    const drawer = (
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          MUI
+        </Typography>
+        <Divider />
+        <List>
+          {menuItems.map((item) => (
+            <ListItem key={item} disablePadding>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    );
+
+    const container = window !== undefined ? () => window().document.body : undefined;
+
+
 
   return (
-    <div>
-      <Grid>
-      <Container maxWidth="sm" >
+    // <div>
+    //   <Grid>
+    //   <Container maxWidth="sm" >
+    <Box sx={{ display: 'flex' }}>
       <AppBar className={classes.appbar}  >
-        <Grid item container>
+        {/* <Grid item container> */}
         <Toolbar>
+        <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {menuItems.map((item) => (
+              <Button key={item} sx={{ color: '#fff' }}>
+                {item}
+              </Button>
+            ))}
+          </Box>
           {menuItems.map((item) => (
               <ListItem
                 key={item.text}
@@ -96,12 +148,30 @@ const Layout: React.FC = ({ children }) => {
         variant='contained' 
         >Sign Up</Button>
         </div>
-        </Grid>
+        {/* </Grid> */}
       </AppBar>
-      </Container>
-      </Grid>
-      </div>
+      <Box component="nav">
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      </Box>
+      // </Container>
+      // </Grid>
+      // </div>
   );
-};
+};}
 
 export default Layout;

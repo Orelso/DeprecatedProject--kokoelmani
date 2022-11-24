@@ -16,6 +16,7 @@ export default function Collections() {
   }, []) // [] tells the serever to run it once
 
   const handleDelete = async (id: number) => {
+    console.log("tete", collections)
     await fetch(`http://localhost:3009/api/item/${id}`, {
         method: 'DELETE'
     })
@@ -26,11 +27,11 @@ export default function Collections() {
 
   return (
     <Container sx={{mt: 12}}>
-      {/* <h1>Your Collection</h1> */}
+      <h1>Your Collection</h1>
         <Grid container spacing={10}>
       {collections.map(collection => (
         <Grid item key={collection.id} xs={12} sm={8} md={6} lg={4}>
-            <CollectionCard collection={collection} onDelete={handleDelete}/> 
+            <CollectionCard collection={collection} onDelete={() => handleDelete(collection.id)}/> 
         </Grid>
       ))}
         </Grid>

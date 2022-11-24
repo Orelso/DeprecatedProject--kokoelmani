@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import StraightIcon from '@mui/icons-material/Straight';
 import {CardMedia} from '@mui/material';
 import SouthIcon from '@mui/icons-material/South';
-import MoveStuffAround from '../components/Ticker';
+import ItemTicker from '../components/Ticker';
 import Footer from '../components/Footer';
 // import Banner from '../components/Banner';
 // import MoveStuffAround from '../components/Ticker';
@@ -62,7 +62,7 @@ export default function Home() {
           Kokoelmani
         </Typography>
         {/* <Banner /> */}
-        <MoveStuffAround />
+        <ItemTicker />
         <Typography className={classes.featured} variant='h4' sx={{color: 'green', mt: 6}} align='center'>
           Featured High's of the Day
         </Typography>
@@ -87,7 +87,7 @@ export default function Home() {
           <TableBody>
           {rowsup.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.ee}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -115,7 +115,7 @@ export default function Home() {
           <TableBody>
           {rowsup.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.uu}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -143,7 +143,7 @@ export default function Home() {
           <TableBody>
           {rowsup.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.gg}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -171,7 +171,7 @@ export default function Home() {
           <TableBody>
           {rowsup.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.ii}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -199,7 +199,7 @@ export default function Home() {
           <TableBody>
           {rowsup.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.ss}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -247,7 +247,7 @@ export default function Home() {
           <TableBody>
           {rowsdown.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.ll}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -275,7 +275,7 @@ export default function Home() {
           <TableBody>
           {rowsdown.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.k}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -303,7 +303,7 @@ export default function Home() {
           <TableBody>
           {rowsdown.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.t}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -331,7 +331,7 @@ export default function Home() {
           <TableBody>
           {rowsdown.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.c}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 
@@ -359,7 +359,7 @@ export default function Home() {
           <TableBody>
           {rowsdown.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.name.p}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <CardMedia 

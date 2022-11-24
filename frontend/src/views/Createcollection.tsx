@@ -38,19 +38,20 @@ export default function Createcollection() {
   const [newItem, setNewItem] = useState('') 
   const [cost, setCost] = useState('') 
   const [language, setLanguage] = useState('') 
-  const [year, setYear] = useState('')
+  const [set, setSet] = useState('')
   const [quantity, setQuantity] = useState('') 
-  const [category, setCategory] = useState('comic-book')
-  // const [set, setSet] = useState('')
-  // const [condition, setCondition] = useState('')
+  const [category, setCategory] = useState('MTG')
+  const [condition, setCondition] = useState('')
+  // const [foil, setFoil] = useState(Boolean)
+  // const [autographed, setAutographed] = useState(Boolean)
 
   const [newItemError, setNewItemError] = useState(false) // 103
   const [costError, setCostError] = useState(false)
   const [languageError, setLanguageError] = useState(false) // 103
-  const [yearError, setYearError] = useState(false)
+  const [setError, setSetError] = useState(false)
   const [quantityError, setQuantityError] = useState(false)
-  // const [setError, setSetError] = useState(false)
-  // const [conditionError, setConditionError] = useState(false)
+  const [conditionError, setConditionError] = useState(false)
+
 
   
   const handleTheSubmit = (e: any) => {
@@ -59,8 +60,9 @@ export default function Createcollection() {
     setNewItemError(false)
     setCostError(false)
     setLanguageError(false)
-    setYearError(false)
+    setSetError(false)
     setQuantityError(false)
+    setConditionError(false)
 
     if (newItem === '') { 
       setNewItemError(true) 
@@ -74,20 +76,23 @@ export default function Createcollection() {
       setLanguageError(true) 
     }
 
-    if (year === '') { 
-      setYearError(true) 
+    if (set === '') { 
+      setSetError(true) 
     }
 
     if (quantity === '') {
       setQuantityError(true)
     }
 
+    if (condition === '') {
+      setConditionError(true)
+    }
 
-    if (newItem && cost && year && category && quantity && language) {
-      fetch('http://localhost:8001/Collections/', {
+    if (newItem && cost && set && category && quantity && language && condition) {
+      fetch('http://localhost:3009/api/item/', {
         method: 'POST',
         headers: {"Content-type": "application/json"},
-        body: JSON.stringify({ newItem, category, cost, year, quantity, language })
+    body: JSON.stringify({ category, newItem, set, quantity, cost, language, condition, /*foil, autographed */ })
       }).then(() => navigate('/collections')) 
     }
 
@@ -105,19 +110,13 @@ export default function Createcollection() {
     </Typography>
 
     <form noValidate autoComplete='off' onSubmit={handleTheSubmit}>
-    <FormControl sx={{marginTop: 1, marginBottom: 2, display: 'block', marginLeft: 39}}>
-        {/* <FormLabel>Category</FormLabel> */}
+    <FormControl sx={{marginTop: 1, marginBottom: 2, display: 'block', }}>
         <RadioGroup row value={category} onChange={(e) => setCategory(e.target.value)}>
-        <FormControlLabel value='mtg'control={<Radio />} label='MTG' />
-        <FormControlLabel value='pokemon'control={<Radio />} label='Pokemon' />
-        <FormControlLabel value='digimon'control={<Radio />} label='Digimon' />
-        <FormControlLabel value='yugioh'control={<Radio />} label='Yu-gi-oh' />
-        <FormControlLabel value='other tcg'control={<Radio />} label='Other TCG' />
-        {/* <FormControlLabel value='comic-book'control={<Radio />} label='Comic-book' /> */}
-        {/* <FormControlLabel value='sportscard'control={<Radio />} label='Sports Card' /> */}
-        {/* <FormControlLabel value='toy'control={<Radio />} label='Toy' /> */}
-        {/* <FormControlLabel value='nft'control={<Radio />} label='NFT' />
-        <FormControlLabel value='funkopop'control={<Radio />} label='FunkoPop' /> */}
+        <FormControlLabel value='MTG'control={<Radio />} label='MTG' />
+        <FormControlLabel value='Pokemon'control={<Radio />} label='Pokemon' />
+        <FormControlLabel value='Digimon'control={<Radio />} label='Digimon' />
+        <FormControlLabel value='Yu-Gi-Oh'control={<Radio />} label='Yu-gi-oh' />
+        <FormControlLabel value='Other TCG'control={<Radio />} label='Other TCG' />
         </RadioGroup>
         </FormControl>
         <TextField
@@ -131,14 +130,14 @@ export default function Createcollection() {
           error={newItemError}
           />
             <TextField
-          onChange={(e)=> setNewItem(e.target.value)}
+          onChange={(e)=> setSet(e.target.value)}
           sx={{marginTop: 3, marginBottom: 2, display: 'block'}}
           label="Set"
           variant='outlined'
           color='secondary'
           fullWidth // makes form the length of page
           required // adds astrik
-          error={newItemError}
+          error={setError}
           />
         <TextField
           onChange={(e)=> setCost(e.target.value)}
@@ -163,14 +162,14 @@ export default function Createcollection() {
           >
         </TextField>
         <TextField
-          onChange={(e)=> setYear(e.target.value)}
+          onChange={(e)=> setCondition(e.target.value)}
           sx={{marginTop: 3, marginBottom: 2, display: 'block'}}
           label="Condition"
           variant='outlined'
           color='secondary'
           fullWidth
           required // adds astrik
-          error={yearError}
+          error={conditionError}
           >
         </TextField>
         <TextField
@@ -185,7 +184,7 @@ export default function Createcollection() {
           >
         </TextField>
       
-        <FormControl sx={{marginTop: -1, marginBottom: 2, display: 'block', marginLeft: 110}}>
+        <FormControl sx={{marginTop: -1, marginBottom: 5, display: 'block', }}>
         <FormControlLabel control={<Checkbox />} label="Foil" />
         <FormControlLabel control={<Checkbox />} label="Autographed" />
         </FormControl>
@@ -200,7 +199,7 @@ export default function Createcollection() {
       </Button>
       <Button 
         sx={{fontSize: 16,'&:hover': {backgroundColor: 'green'}, marginTop: -7, marginLeft: 1}} 
-        type="submit" 
+        type="reset" 
         variant='contained' 
         endIcon={<ClearIcon/>}
         >

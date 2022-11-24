@@ -3,7 +3,7 @@ import Ticker from 'react-ticker'
 import StraightIcon from '@mui/icons-material/Straight';
 
 
-const MoveStuffAround = () => (
+const ItemTicker = () => (
     <Ticker>
         {({ index }) => (
             <>
@@ -13,4 +13,4 @@ const MoveStuffAround = () => (
     </Ticker>
 )
 
-export default MoveStuffAround
+export default ItemTicker
