@@ -19,6 +19,8 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNumberedRtlOutlined";
 import SearchBar from "./SearchBar";
 import MenuIcon from '@mui/icons-material/Menu';
+import StorageIcon from '@mui/icons-material/Storage';
+import { red } from '@mui/material/colors';
 
 const menuItems = [
     {
@@ -50,7 +52,7 @@ const menuItems = [
       text: "Other",
       icon: <MoreHorizOutlinedIcon color='secondary' />,
       path: "/Other",
-    },
+    }
   ];
 
 function ResponsiveAppBar() {
@@ -76,7 +78,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <StorageIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -92,7 +94,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Kokoelmani
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -131,7 +133,6 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -148,7 +149,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Kokoelmani
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {menuItems.map((menuItem) => (
@@ -161,6 +162,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
+          <Button sx={{backgroundColor: red!}}>sign in</Button>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
