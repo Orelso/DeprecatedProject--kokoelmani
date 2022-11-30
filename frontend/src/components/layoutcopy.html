@@ -1,177 +1,271 @@
-import { makeStyles } from "@mui/styles";
-import React from "react";
-import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItemButton, Toolbar, Typography } from "@mui/material";
-import {useNavigate} from "react-router-dom";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import AddIcon from "@mui/icons-material/Add";
-import SavingsIcon from "@mui/icons-material/Savings";
-import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNumberedRtlOutlined";
-import SearchBar from "./SearchBar";
-import { Container } from "@mui/system";
-import MenuIcon from '@mui/icons-material/Menu';
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Poke</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsup.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/452"
+            title="Image title"
+         />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
+
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Toys</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsup.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/123"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
+
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Comic</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsup.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/145"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
+
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Digi</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsup.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+           sx={{paddingTop: '98%'}}
+           image="https://lorempokemon.fakerapi.it/pokemon/142"
+          title="Image title"
+         />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
+
+</Box>
+
+<Typography className={classes.featured} variant='h4'sx={{color: 'red', mt: 6}} align='center'>
+    Featured Low's of the Day
+  </Typography>
 
 
+  <Box
+sx={{
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  '& > :not(style)': {
+    m: 1,
+    width: 350,
+    height: 430,
+    backgroundColor: '#efe4e2',
+  },
+}}
+>
+ <TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>MTG</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsdown.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/45"
+            title="Image title"
+         />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
 
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Poke</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsdown.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/82"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
 
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Toys</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsdown.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/2563"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
 
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Comic</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsdown.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/1045"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>
 
-const useStyles = makeStyles((theme) => {
-  return {
-    // toolbar: theme.mixins.toolbar, 
-    appbar: {
-      marginTop: -15,
-
-      
-    },
-  };
-});
-interface Props {
-  children: React.ReactNode
-}
-
-const Layout: React.FC<Props> = ({ children, props }): JSX: any.Element: => {
-  const classes = useStyles();
-  const navigate = useNavigate();
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const location = useLocation();
-
-  const menuItems = [
-    {
-      text: "Home",
-      icon: <HomeIcon color='secondary' />,
-      path: "/",
-    },
-    {
-      text: "CreateCollection",
-      icon: <AddIcon color='secondary' />,
-      path: "/Createcollection",
-    },
-    {
-      text: "Collection",
-      icon: <ShoppingBagOutlinedIcon color='secondary' />,
-      path: "/Collections",
-    },
-    {
-      text: "Wallet",
-      icon: <SavingsIcon color='secondary' />,
-      path: "/Wallet",
-    },
-    {
-      text: "Lists",
-      icon: <FormatListNumberedRtlOutlinedIcon color='secondary' />,
-      path: "/Lists",
-    },
-    {
-      text: "Other",
-      icon: <MoreHorizOutlinedIcon color='secondary' />,
-      path: "/Other",
-    },
-  ];
-  const drawerWidth = 240;
-  
-  
-    const handleDrawerToggle = () => {
-      setMobileOpen(!mobileOpen);
-    };
-
-    const drawer = (
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ my: 2 }}>
-          MUI
-        </Typography>
-        <Divider />
-        <List>
-          {menuItems.map((item) => (
-            <ListItem key={item} disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
-
-
-
-  return (
-    // <div>
-    //   <Grid>
-    //   <Container maxWidth="sm" >
-    <Box sx={{ display: 'flex' }}>
-      <AppBar className={classes.appbar}  >
-        {/* <Grid item container> */}
-        <Toolbar>
-        <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {menuItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-          {menuItems.map((item) => (
-              <ListItem
-                key={item.text}
-                button
-                onClick={() => navigate(item.path)}
-              >
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-          ))}
-        </Toolbar>
-        <div style={{marginBottom: -20}}>
-        <SearchBar />
-        <Button  sx={{fontSize: 16,'&:hover': {backgroundColor: '#124116'}, marginLeft: 250, marginTop: -10}} 
-        type="submit" 
-        variant='contained' 
-        >Log In</Button>
-         <Button  sx={{fontSize: 16,'&:hover': {backgroundColor: '#124116'}, marginTop: -10}} 
-        type="submit" 
-        variant='contained' 
-        >Sign Up</Button>
-        </div>
-        {/* </Grid> */}
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      </Box>
-      // </Container>
-      // </Grid>
-      // </div>
-  );
-};}
-
-export default Layout;
+<TableContainer component={Paper} elevation={13}> 
+  <Table aria-label="simple table">
+    <TableHead>
+        <TableCell>Digi</TableCell>
+    </TableHead>
+    <TableBody>
+    {rowsdown.map((row, index) => (
+      <TableRow
+        key={row.name + index}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+         <CardMedia 
+            sx={{paddingTop: '98%'}}
+            image="https://lorempokemon.fakerapi.it/pokemon/485"
+            title="Image title"
+          />
+        <TableCell component="th" scope="row">
+          {row.name}
+        </TableCell>
+        <TableCell align="right">{row.cost}</TableCell>
+        <TableCell align="right">{row.percentage}</TableCell>
+        <TableCell align="right">{row.up_down}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  </Table>
+</TableContainer>

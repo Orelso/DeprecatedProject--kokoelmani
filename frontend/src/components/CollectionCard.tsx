@@ -10,7 +10,7 @@ import { AnyCardCollection } from 'kokoelmani-shared/dist';
 
 
 const useStyles = makeStyles({
-    test: {
+    color: {
         border: (collection: any) => {
             if (collection.category === 'comic-book') {
                 return '2px solid linear-gradient(90deg, rgba(255,203,5,1) 0%, rgba(42,117,187,1) 25%, rgba(199,160,8,1) 50%, rgba(60,90,166,1) 75%);' 
@@ -47,7 +47,7 @@ const CollectionCard: React.FC<Props> = ({ collection, onDelete }) =>  {
 
   return (
     <div>
-            <Card elevation={8} className={classes.test}>
+            <Card elevation={8} className={classes.color}>
                 <CardHeader 
                     action={ 
                         <IconButton onClick={() => onDelete?.(collection.id)}> 

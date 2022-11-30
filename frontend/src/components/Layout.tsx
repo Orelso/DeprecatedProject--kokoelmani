@@ -20,7 +20,32 @@ import FormatListNumberedRtlOutlinedIcon from "@mui/icons-material/FormatListNum
 import SearchBar from "./SearchBar";
 import MenuIcon from '@mui/icons-material/Menu';
 import StorageIcon from '@mui/icons-material/Storage';
-import { red } from '@mui/material/colors';
+import { green, red } from '@mui/material/colors';
+import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {useNavigate} from "react-router-dom";
+import { makeStyles } from "@mui/styles";
+import LoginIcon from '@mui/icons-material/Login';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+
+
+// const useStyles = makeStyles((theme) => {
+//   return{
+//   button: {
+//       // backgroundColor: 'green',
+//       // width: '10px',
+//       //  padding: theme.spacing(1) 
+//   },
+//   featured: {
+//     /* padding: theme.spacing(8) */
+//   },
+//   tablerow: {
+//     /* padding: theme.spacing(2) */
+
+//   }
+// }})
+
+
+
 
 const menuItems = [
     {
@@ -55,37 +80,48 @@ const menuItems = [
     }
   ];
 
+  // const logSign = [
+  //   {
+  //     text: "Log In",
+  //     icon: <LoginIcon color='secondary' />,
+  //     // path: "/",
+  //   },
+  //   {
+  //     text: "Sign Up",
+  //     icon: <AssignmentIndIcon color='secondary' />,
+  //     // path: "/Createcollection",
+  //   },
+
+  // ]
+
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  // const classes = useStyles()
+
+
 
   const handleOpenNavMenu = (event:any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event:any) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+ 
 
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <StorageIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <StorageIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
+              textAlign: 'justify',
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -126,11 +162,16 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {menuItems.map((menuItem) => (
-                <MenuItem key={menuItem.text} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{menuItem.text}</Typography>
-                </MenuItem>
-              ))}
+              {menuItems.map((item) => (
+              <ListItem
+                key={item.text}
+                button
+                onClick={() => navigate(item.path)}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+          ))}
             </Menu>
           </Box>
           <Typography
@@ -151,48 +192,33 @@ function ResponsiveAppBar() {
           >
             Kokoelmani
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {menuItems.map((menuItem) => (
-              <Button
-                key={menuItem.text}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+          {menuItems.map((item) => (
+              <ListItem
+                key={item.text}
+                button
+                onClick={() => navigate(item.path)}
+                sx={{ display: 'grid',
+                gridTemplateColumns: 'repeat(5, 1fr)',
+                gap: 1,
+                gridTemplateRows: 'auto',}}
               >
-                {menuItem.text}
-              </Button>
-            ))}
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+          ))}
           </Box>
-          <Button sx={{backgroundColor: red!}}>sign in</Button>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {menuItems.map((menuItem) => (
-                <MenuItem key={menuItem.text} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{menuItem.text}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {/* {logSign.map((item) => (
+              <ListItem 
+              sx={{marginLeft: 20}}
+                key={item.text}
+                button
+                // onClick={() => navigate(item.path)}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+          ))} */}
         </Toolbar>
       </Container>
     </AppBar>

@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => {
   page: {
       background: '#E5E4E2',
       width: '100%',
+      fontSize: '70px'
       // padding: theme.spacing(1) 
   },
   featured: {
@@ -39,12 +40,12 @@ export default function Home() {
 
   return (
     <div>
-        <Typography sx={{mt: 11}} className={classes.page} variant='h1' color='#ff7961' align='center'>
+        <Typography sx={{mt: 1}} className={classes.page} variant='h1' color='#ff7961' align='center'>
           Kokoelmani
         </Typography>
         {/* <Banner /> */}
         <ItemTicker />
-        <Typography className={classes.featured} variant='h4' sx={{color: 'green', mt: 6}} align='center'>
+        <Typography sx={{color: 'green', mt: 6}} className={classes.featured} variant='h4' align='center'>
           Featured High's of the Day
         </Typography>
         <Box
