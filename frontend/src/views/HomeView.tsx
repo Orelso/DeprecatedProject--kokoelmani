@@ -64,6 +64,8 @@ export default function Home() {
       {/* {cardTables.map((row index) => {
       <DailyCardTable key={row + index} />
       })} */}
+
+      <DailyCardTable />
     </Box>
     <Typography className={classes.featured} variant='h4'sx={{color: 'red', mt: 6}} align='center'>
     Featured Low's of the Day

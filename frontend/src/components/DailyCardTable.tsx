@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table, TableCell, TableContainer, TableHead, TableRow, TableBody, Typography, Card } from '@mui/material'
 import { makeStyles } from "@mui/styles";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import StraightIcon from '@mui/icons-material/Straight';
+import axios from 'axios';
+
+
 
 
 function createData(name: any, cost: any, percentage: any, up_down: any) {
@@ -19,16 +22,19 @@ function rowsup(){
     createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
     createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
   ]}
-  
-//   const rowsdown = [
-//     createData('Mew', '$50,000', '10%',<SouthIcon /> ),
-//     createData('Mew', '$50,000', '10%',<SouthIcon /> ),
-//     createData('Mew', '$50,000', '10%',<SouthIcon /> ),
-//     createData('Mew', '$50,000', '10%',<SouthIcon /> ),
-//     createData('Mew', '$50,000', '10%',<SouthIcon /> ),
-//   ];
+
+
 
 export default function DailyCardTable() {
+  const [digimon, setDigimon] = useState([])
+
+  useEffect(() => {
+    console.log("It started");
+    axios.get("https://digimoncard.io/api-public/search.php?n=Agumon").then((response) => {
+      console.log("promise fulfilled", response.data);
+      setDigimon(response.data);
+    });
+  }, [digimon]);
     return (
         <TableContainer component={Paper} elevation={13}> 
         <Table aria-label="simple table">
@@ -43,8 +49,6 @@ export default function DailyCardTable() {
             >
                 <TableCell>
                <img 
-                  // style={{paddingTop: '98%'}}
-                  src="https://lorempokemon.fakerapi.it/pokemon"
                   title="Image title"
                   alt="img"
                   width="47"
