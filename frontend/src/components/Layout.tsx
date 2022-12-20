@@ -46,7 +46,6 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 
 
-
 const menuItems = [
     {
       text: "Home",
@@ -192,6 +191,8 @@ function ResponsiveAppBar() {
           >
             Kokoelmani
           </Typography>
+
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
           {menuItems.map((item) => (
               <ListItem

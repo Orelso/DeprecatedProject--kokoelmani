@@ -10,6 +10,7 @@ import SouthIcon from '@mui/icons-material/South';
 import ItemTicker from '../components/Ticker';
 import Footer from '../components/Footer';
 import DailyCardTable from '../components/DailyCardTable';
+import SearchBar from '../components/SearchBar';
 
 
 
@@ -43,6 +44,8 @@ export default function Home() {
         <Typography sx={{mt: 1}} className={classes.page} variant='h1' color='#ff7961' align='center'>
           Kokoelmani
         </Typography>
+        <SearchBar/>
+
         {/* <Banner /> */}
         <ItemTicker />
         <Typography sx={{color: 'green', mt: 6}} className={classes.featured} variant='h4' align='center'>
@@ -55,8 +58,8 @@ export default function Home() {
         flexWrap: 'wrap',
         '& > :not(style)': {
           m: 1,
-          width: 350,
-          height: 430,
+          width: 340,
+          height: 410,
           backgroundColor: '#efe4e2',
         },
       }}
@@ -66,10 +69,34 @@ export default function Home() {
       })} */}
 
       <DailyCardTable />
+      <DailyCardTable />
+      <DailyCardTable />
+      <DailyCardTable />
+      <DailyCardTable />
+
     </Box>
     <Typography className={classes.featured} variant='h4'sx={{color: 'red', mt: 6}} align='center'>
     Featured Low's of the Day
   </Typography>
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      '& > :not(style)': {
+        m: 1,
+       width: 340,
+          height: 410,
+        backgroundColor: '#efe4e2',
+      },
+    }}>
+  <DailyCardTable />
+  <DailyCardTable />
+  <DailyCardTable />
+  <DailyCardTable />
+  <DailyCardTable />
+  </Box>
+
     <div>
       <Footer />
     </div>

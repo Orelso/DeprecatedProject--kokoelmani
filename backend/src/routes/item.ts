@@ -12,6 +12,7 @@ const items: AnyCardCollection[] = [
 		cost: 100000,
 		condition: 'new',
 		type: 'card'
+		
 	},
 	{
 		id: 1,

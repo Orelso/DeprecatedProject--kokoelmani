@@ -20,8 +20,16 @@ function rowsup(){
     createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
     createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
     createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
-    createData('Black Lotus', '$50,000', '10%',<StraightIcon /> ),
   ]}
+
+  // const oneCard = ({
+  //   name,
+  //   capital,
+  //   languages,
+  //   flags,
+  //   coatOfArms,
+  //   maps,
+  // })
 
 
 
@@ -30,13 +38,13 @@ export default function DailyCardTable() {
 
   useEffect(() => {
     console.log("It started");
-    axios.get("https://digimoncard.io/api-public/search.php?n=Agumon").then((response) => {
+    axios.get("https://images.digimoncard.io/images/cards/BO-115.jpg").then((response) => {
       console.log("promise fulfilled", response.data);
       setDigimon(response.data);
     });
   }, [digimon]);
     return (
-        <TableContainer component={Paper} elevation={13}> 
+        <TableContainer component={Paper} elevation={13} sx={{overflow: "hidden" }}> 
         <Table aria-label="simple table">
           {/* <TableHead>
               <TableCell>MTG</TableCell>
@@ -45,13 +53,14 @@ export default function DailyCardTable() {
           {rowsup().map((row, index) => (
             <TableRow
               key={row.name + index}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
             >
                 <TableCell>
                <img 
                   title="Image title"
                   alt="img"
                   width="47"
+                  src="https://images.digimoncard.io/images/cards/BO-115.jpg"
                 ></img>
                 </TableCell>
               <TableCell component="th" scope="row">

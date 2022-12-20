@@ -34,7 +34,6 @@ export interface MtgCollection extends BaseCollection {
     quantity: number;
     cost: number;
     condition: string;
-
 }
 
 export interface DigimonCollection extends BaseCollection {
@@ -47,6 +46,7 @@ export interface DigimonCollection extends BaseCollection {
     quantity: number;
     cost: number;
     condition: string;
+    
 }
 
 export interface YugiohCollection extends BaseCollection {
@@ -59,6 +59,7 @@ export interface YugiohCollection extends BaseCollection {
     quantity: number;
     cost: number;
     condition: string;
+   
 
 }
 
@@ -72,6 +73,7 @@ export interface OthertcgCollection extends BaseCollection {
     quantity: number;
     cost: number;
     condition: string;
+    
 
 }
 export type AnyCardCollection = PokemonCollection | MtgCollection | DigimonCollection | YugiohCollection | OthertcgCollection

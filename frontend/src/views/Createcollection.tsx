@@ -185,7 +185,7 @@ export default function Createcollection() {
         </TextField>
       
         <FormControl sx={{marginTop: -1, marginBottom: 5, display: 'block', }}>
-        <FormControlLabel control={<Checkbox />} label="Foil" />
+        <FormControlLabel control={<Checkbox />}  label="Foil" />
         <FormControlLabel control={<Checkbox />} label="Autographed" />
         </FormControl>
 
