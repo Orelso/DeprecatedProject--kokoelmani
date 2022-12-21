@@ -11,6 +11,9 @@ import ItemTicker from '../components/Ticker';
 import Footer from '../components/Footer';
 import DailyCardTable from '../components/DailyCardTable';
 import SearchBar from '../components/SearchBar';
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 
 
@@ -38,6 +41,16 @@ const cardTables = 5
 
 export default function Home() {
   const classes = useStyles()
+  const [digimon, setDigimon] = useState([]);
+
+
+  useEffect(() => {
+    console.log("It started");
+    axios.get("https://digimoncard.io/api-public/search.php?n=mon").then((response) => {
+      console.log("promise fulfilled", response.data);
+      setDigimon(response.data);
+    });
+  }, [digimon]);
 
   return (
     <div>

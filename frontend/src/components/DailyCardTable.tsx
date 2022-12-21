@@ -34,15 +34,16 @@ function rowsup(){
 
 
 export default function DailyCardTable() {
-  const [digimon, setDigimon] = useState([])
+  // const [digimon, setDigimon] = useState([])
 
-  useEffect(() => {
-    console.log("It started");
-    axios.get("https://images.digimoncard.io/images/cards/BO-115.jpg").then((response) => {
-      console.log("promise fulfilled", response.data);
-      setDigimon(response.data);
-    });
-  }, [digimon]);
+  // useEffect(() => {
+  //   console.log("It started");
+  //   axios.get("https://images.digimoncard.io/images/cards/BO-115.jpg").then((response) => {
+  //     console.log("promise fulfilled", response.data);
+  //     setDigimon(response.data);
+  //   });
+  // }, [digimon]);
+
     return (
         <TableContainer component={Paper} elevation={13} sx={{overflow: "hidden" }}> 
         <Table aria-label="simple table">

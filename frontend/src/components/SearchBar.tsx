@@ -7,12 +7,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 
-const FilterCard = ({  }) => {
-  // const [show, setShow] = useState("");
-  // const handleCardSearch = ({ target: { value } }) => {
-  //   setShow(value);
-  
 
+
+export default function SearchBar() {
   return (
     <Paper
       component="form"
@@ -21,8 +18,6 @@ const FilterCard = ({  }) => {
       <InputBase
         sx={{ ml: 1, flex: 1, color: 'white'}}
         placeholder="Search..."
-        // onChange={handleCardSearch}
-        // value={show}
       />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
@@ -30,5 +25,3 @@ const FilterCard = ({  }) => {
     </Paper>
   );
 }
-
-export default FilterCard;
