@@ -8,8 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 
 
-
-export default function SearchBar() {
+export default function SearchBar({ }) {
   return (
     <Paper
       component="form"

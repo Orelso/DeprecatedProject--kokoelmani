@@ -2,7 +2,7 @@
 // import Card from "@mui/material/Card";
 // import CardContent from "@mui/material/CardContent";
 // import Typography from "@mui/material/Typography";
-// import { Grid } from "@mui/material";
+// import { CardHeader, Grid } from "@mui/material";
 
 // const OneDigimonCard = ({
 //   name,
@@ -24,18 +24,15 @@
 //   card_sets[],
 //   image_url
 
-// }) => {
-//     const {official: officialName, common: commonName} = Object.values(nativeName)[0];
+// }) 
+
+// // => {
+// //     const {official: officialName, common: commonName} = Object.values(nativeName)[0];
 
 //   return (
 //     <div>
 //             <Card elevation={8} className={classes.color}>
-//                 <CardHeader 
-//                     action={ 
-//                         <IconButton onClick={() => onDelete?.(collection.id)}> 
-//                             <DeleteOutlined />
-//                         </IconButton>
-//                     }
+//                 <CardHeader
 //                     title={collection.newItem} sx={{color: "black", textAlign: "center"}}
 //                     subheader={collection.category} 
 //                 />

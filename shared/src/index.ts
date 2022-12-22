@@ -8,7 +8,7 @@ export interface ApiStatus {
 }
 
 export interface BaseCollection {
-    type: 'card'
+    type: 'card' | string
 }
 
 
@@ -49,6 +49,27 @@ export interface DigimonCollection extends BaseCollection {
     
 }
 
+export interface DigimonCardDetails extends BaseCollection {
+    name: string;
+    type: string;
+    color: string;
+    stage: string;
+    digi_type: string;
+    attribute: string;
+    level: number;
+    play_cost: number,
+    evolution_cost: number,
+    cardrarity: string,
+    artist: string,
+    dp: number,
+    cardnumber: number,
+    maineffect: string,
+    soureeffect: string,
+    set_name: string,
+
+
+
+}
 export interface YugiohCollection extends BaseCollection {
     type: 'card';
     id: number;
@@ -76,6 +97,6 @@ export interface OthertcgCollection extends BaseCollection {
     
 
 }
-export type AnyCardCollection = PokemonCollection | MtgCollection | DigimonCollection | YugiohCollection | OthertcgCollection
+export type AnyCardCollection = PokemonCollection | MtgCollection | DigimonCollection | YugiohCollection | OthertcgCollection | DigimonCardDetails
 
 // export type AnyCollection = AnyCardCollection
