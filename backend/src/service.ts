@@ -2,6 +2,8 @@ import * as express from 'express';
 import {hello} from 'kokoelmani-shared/dist';
 import {Server} from 'http';
 import {setupExpress} from './middleware';
+import { openMongoConnection, setMongoConnectionUri } from './db';
+import { getHttpPort, getMongoUrl } from './env';
 
 const app = express();
 
@@ -31,8 +33,11 @@ export const stopExpress = (): Promise<void> => {
 };
 
 export const startAll = async (): Promise<void> => {
-	await startExpress(3009);
-	console.log(`backend listening on port ${3009} [${process.env.NODE_ENV}]`);
+	const port = await getHttpPort()
+	setMongoConnectionUri(await getMongoUrl());
+	await openMongoConnection();
+	await startExpress(port);
+	console.log(`backend listening on port ${port} [${process.env.NODE_ENV}]`);
 	// start mongo etc here if mongo is not required to be up before express
 };
 

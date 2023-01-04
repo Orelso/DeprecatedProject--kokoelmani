@@ -1,0 +1,1 @@
+export {MtgCardDocument, MtgCardModel} from './MtgCard';

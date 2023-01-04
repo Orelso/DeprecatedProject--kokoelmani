@@ -97,6 +97,7 @@ export interface OthertcgCollection extends BaseCollection {
     
 
 }
-export type AnyCardCollection = PokemonCollection | MtgCollection | DigimonCollection | YugiohCollection | OthertcgCollection | DigimonCardDetails
+export type AnyCardCollection =  MtgCollection  
+// | PokemonCollection | DigimonCollection | YugiohCollection | OthertcgCollection | DigimonCardDetails
 
 // export type AnyCollection = AnyCardCollection

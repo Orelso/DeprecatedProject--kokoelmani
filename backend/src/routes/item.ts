@@ -1,5 +1,6 @@
 import {NextFunction, Request, Response, Router} from 'express';
 import {AnyCardCollection} from 'kokoelmani-shared/dist';
+import {MtgCardModel} from '../schemas';
 
 const items: AnyCardCollection[] = [
 	{
@@ -11,8 +12,7 @@ const items: AnyCardCollection[] = [
 		quantity: 0,
 		cost: 100000,
 		condition: 'new',
-		type: 'card'
-		
+		type: 'card',
 	},
 	{
 		id: 1,
@@ -23,8 +23,7 @@ const items: AnyCardCollection[] = [
 		quantity: 1,
 		cost: 475345,
 		condition: 'new',
-		type: 'card'
-
+		type: 'card',
 	},
 	{
 		id: 2,
@@ -35,8 +34,7 @@ const items: AnyCardCollection[] = [
 		quantity: 2,
 		cost: 40,
 		condition: 'new',
-		type: 'card'
-
+		type: 'card',
 	},
 	{
 		id: 3,
@@ -47,8 +45,7 @@ const items: AnyCardCollection[] = [
 		quantity: 2,
 		cost: 20,
 		condition: 'new',
-		type: 'card'
-
+		type: 'card',
 	},
 ];
 
@@ -57,9 +54,10 @@ const router = Router();
 /**
  * GET /api/item gets list of items
  */
-router.get('/', (req: Request, res: Response, next: NextFunction) => {
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		res.json(items);
+		// res.json(items);
+		res.json(await MtgCardModel.find());
 	} catch (err) {
 		next(err);
 	}
@@ -68,13 +66,18 @@ router.get('/', (req: Request, res: Response, next: NextFunction) => {
 /**
  * GET /api/item get item or 404 error
  */
-router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
+router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const item = items.find((item) => item.id.toString() === req.params.id);
+		/*const item = items.find((item) => item.id.toString() === req.params.id);
 		if (!item) {
 			return res.sendStatus(404);
 		}
-		res.json(item);
+		res.json(item);*/
+		const card = await MtgCardModel.findOne({id: req.params.id});
+		if (!card) {
+			return res.sendStatus(404);
+		}
+		res.json(card);
 	} catch (err) {
 		next(err);
 	}
@@ -83,7 +86,7 @@ router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
 
 router.post('/', (req: Request, res: Response, next: NextFunction) => {
 	try {
-		items.push({...req.body,id:(items.slice(-1))[0].id + 1});
+		items.push({...req.body, id: items.slice(-1)[0].id + 1});
 		res.end();
 	} catch (err) {
 		next(err);
