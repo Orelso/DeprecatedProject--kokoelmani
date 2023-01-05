@@ -16,7 +16,7 @@ export const getHome = (): ThunkResult<Promise<void>> => async (dispatch /* getS
 	dispatch(setError(undefined));
 	try {
 		const headers = new Headers();
-		const req = new Request('https://jsonplaceholder.typicode.com/todos/1', {headers});
+		const req = new Request('http//localhost:3009/api/item', {headers});
 		let res = await cacheMatch(req, {ifNoneMatch: true}); // check cached response (and update if-none-match to req if have etag)
 		const cacheData = await dispatch(handleJsonResponse<IToDo>(res));
 		if (isOnline()) {

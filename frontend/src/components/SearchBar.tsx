@@ -6,9 +6,23 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
+import { useState } from "react";
+import { getHome } from '../actions/demoActions';
+import { useThunkDispatch } from '../reducers';
 
 
-export default function SearchBar({ }) {
+
+
+const FilterCard = () => {
+  const [show, setShow] = useState("");
+  const dispatch = useThunkDispatch();
+  const handleOnClick = ({ target: { value } }: any) => {
+    console.log("poop",value)
+    setShow(value);
+    dispatch (getHome())
+  };
+ 
+
   return (
     <Paper
       component="form"
@@ -17,6 +31,8 @@ export default function SearchBar({ }) {
       <InputBase
         sx={{ ml: 1, flex: 1, color: 'white'}}
         placeholder="Search..."
+        onChange={handleOnClick}
+        value={show}
       />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
@@ -24,3 +40,5 @@ export default function SearchBar({ }) {
     </Paper>
   );
 }
+
+export default FilterCard;
