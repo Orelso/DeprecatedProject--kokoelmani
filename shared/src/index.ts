@@ -29,7 +29,7 @@ export interface MtgCollection extends BaseCollection {
     id: number;
     category: string;
     language: string;
-    newItem: string;
+    name: string;
     set?: string;
     quantity: number;
     cost: number;

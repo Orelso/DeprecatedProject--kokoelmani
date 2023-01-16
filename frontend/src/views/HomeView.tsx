@@ -41,16 +41,16 @@ const cardTables = 5
 
 export default function Home() {
   const classes = useStyles()
-  const [digimon, setDigimon] = useState([]);
+  const [mtg, setMtg] = useState([]);
 
 
   useEffect(() => {
     console.log("It started");
-    axios.get("https://digimoncard.io/api-public/search.php?n=mon").then((response) => {
+    axios.get('http://localhost:3009/api/item').then((response) => {
       console.log("promise fulfilled", response.data);
-      setDigimon(response.data);
+      setMtg(response.data);
     });
-  }, [digimon]);
+  }, []);
 
   return (
     <div>

@@ -1,4 +1,6 @@
-import * as fsPromise from 'fs/promises';
+// import * as fsPromise from 'fs/promises';
+import * as fs from 'fs';
+import * as bigjson from 'big-json';
 import {openMongoConnection, setMongoConnectionUri} from './db';
 import {getMongoUrl} from './env';
 import {IMtgCard} from './interfaces/MtgCard';
@@ -7,11 +9,18 @@ import {MtgCardModel} from './schemas';
 async function importAll() {
 	setMongoConnectionUri(await getMongoUrl());
 	await openMongoConnection();
-	const cards = JSON.parse((await fsPromise.readFile('import.json')).toString()) as IMtgCard[];
-    await MtgCardModel.deleteMany();
-	for (const card of cards) {
-		await new MtgCardModel(card).save();
-	}
+	const stream = fs.createReadStream('import.json');
+	const parser = bigjson.createParseStream();
+
+	parser.on('data', async (cards: IMtgCard[]) => {
+		// TODO: remove not existing from database
+		for (const card of cards) {
+			console.log(`save ${card.id}`);
+			await MtgCardModel.updateOne({id: card.id}, card,{upsert: true});
+		}
+	});
+
+	stream.pipe(parser);
 }
 
 // cd backend

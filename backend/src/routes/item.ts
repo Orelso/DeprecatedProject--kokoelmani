@@ -7,46 +7,46 @@ const items: AnyCardCollection[] = [
 		id: 0,
 		category: 'Pokemon',
 		language: 'English',
-		newItem: 'Charizard',
+		name: 'Charizard',
 		set: 'Base',
 		quantity: 0,
 		cost: 100000,
 		condition: 'new',
 		type: 'card',
 	},
-	{
-		id: 1,
-		category: 'MTG',
-		language: 'English',
-		newItem: 'Black Lotus',
-		set: 'Alpha',
-		quantity: 1,
-		cost: 475345,
-		condition: 'new',
-		type: 'card',
-	},
-	{
-		id: 2,
-		category: 'Digimon',
-		language: 'English',
-		newItem: 'Angelmon',
-		set: 'Alpha',
-		quantity: 2,
-		cost: 40,
-		condition: 'new',
-		type: 'card',
-	},
-	{
-		id: 3,
-		category: 'Yu-Gi-Oh',
-		language: 'English',
-		newItem: 'Dark Magician',
-		set: 'Alpha',
-		quantity: 2,
-		cost: 20,
-		condition: 'new',
-		type: 'card',
-	},
+	// {
+	// 	id: 1,
+	// 	category: 'MTG',
+	// 	language: 'English',
+	// 	newItem: 'Black Lotus',
+	// 	set: 'Alpha',
+	// 	quantity: 1,
+	// 	cost: 475345,
+	// 	condition: 'new',
+	// 	type: 'card',
+	// },
+	// {
+	// 	id: 2,
+	// 	category: 'Digimon',
+	// 	language: 'English',
+	// 	newItem: 'Angelmon',
+	// 	set: 'Alpha',
+	// 	quantity: 2,
+	// 	cost: 40,
+	// 	condition: 'new',
+	// 	type: 'card',
+	// },
+	// {
+	// 	id: 3,
+	// 	category: 'Yu-Gi-Oh',
+	// 	language: 'English',
+	// 	newItem: 'Dark Magician',
+	// 	set: 'Alpha',
+	// 	quantity: 2,
+	// 	cost: 20,
+	// 	condition: 'new',
+	// 	type: 'card',
+	// },
 ];
 
 const router = Router();
@@ -57,7 +57,7 @@ const router = Router();
 router.get('/', async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		// res.json(items);
-		res.json(await MtgCardModel.find());
+		res.json(await MtgCardModel.find({},'id name -_id').limit(10));
 	} catch (err) {
 		next(err);
 	}
@@ -82,6 +82,19 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 		next(err);
 	}
 	return;
+});
+
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { searchTerm } = req.query;
+    let itemsToShow = items;
+    if (searchTerm) {
+      itemsToShow = items.filter(item => item.name.toLowerCase().includes(searchTerm));
+    }
+    res.json(itemsToShow);
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.post('/', (req: Request, res: Response, next: NextFunction) => {

@@ -48,7 +48,7 @@ export interface RelatedUris {
 export interface IMtgCard {
 	object: string;
 	id: string;
-	oracle_id: string;
+	oracle_id: string | null;
 	multiverse_ids: number[];
 	mtgo_id: number;
 	mtgo_foil_id: number;

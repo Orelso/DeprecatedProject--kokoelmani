@@ -9,19 +9,24 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import { useState } from "react";
 import { getHome } from '../actions/demoActions';
 import { useThunkDispatch } from '../reducers';
+import axios from 'axios';
 
 
 
 
 const FilterCard = () => {
-  const [show, setShow] = useState("");
-  const dispatch = useThunkDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
   const handleOnClick = ({ target: { value } }: any) => {
-    console.log("poop",value)
-    setShow(value);
-    dispatch (getHome())
+    setSearchTerm(value);
+    // make a GET request to the server with the searchTerm as a query parameter
+    axios.get(`/api/items?searchTerm=${searchTerm}`)
+      .then(() => {
+        // do something with the response, for example, set the filtered items to a state variable
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   };
- 
 
   return (
     <Paper
@@ -32,7 +37,7 @@ const FilterCard = () => {
         sx={{ ml: 1, flex: 1, color: 'white'}}
         placeholder="Search..."
         onChange={handleOnClick}
-        value={show}
+        value={searchTerm}
       />
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />

@@ -7,7 +7,7 @@ const schema = new Schema<IMtgCard, ModelType>(
 	{
 		object: {type: String, index: true, required: true},
 		id: {type: String, index: true, required: true},
-		oracle_id: {type: String, required: true},		
+		oracle_id: {type: String, default: null},		
 		multiverse_ids: [{type: Number}],
         mtgo_id: {type: Number},
         mtgo_foil_id: {type: Number},
