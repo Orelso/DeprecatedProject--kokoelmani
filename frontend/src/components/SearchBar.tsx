@@ -58,7 +58,11 @@ const FilterCard = () => {
 			/>
 			{/* TODO move this map into the panel where you'll display search results */}
 			{searchResults.map((result) => {
-				return <div>{result.name}</div>;
+				return (
+					<div>
+						{result.name} {result.cmc}
+					</div>
+				);
 			})}
 		</FilterCardStyles>
 	);
