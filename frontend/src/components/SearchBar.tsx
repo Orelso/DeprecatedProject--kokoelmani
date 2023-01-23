@@ -1,26 +1,33 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import DirectionsIcon from '@mui/icons-material/Directions';
 import {useState} from 'react';
-import {getHome} from '../actions/demoActions';
-import {useThunkDispatch} from '../reducers';
-import {TextField} from '@mui/material';
+import {IconButton, TextField} from '@mui/material';
 import styled from 'styled-components';
+// import {debounce} from 'lodash'
+// import debounce from 'lodash.debounce'
+import {useAtom} from 'jotai';
+import {searchResultsAtom} from '../store';
 
 const FilterCard = () => {
 	const [searchTerm, setSearchTerm] = useState('');
-	const handleOnClick = ({target: {value}}: any) => {
+	const [searchResults, setSearchResults] = useAtom(searchResultsAtom);
+	/** when the user types in the form, call to the API and populate the list of results
+	 *
+	 * TODO probably want to debounce/throttle the requests so we don't sent a new request with each keystroke
+	 */
+	const handleOnChange = ({target: {value}}: any) => {
 		setSearchTerm(value);
+		console.log('🚀 ~ file: SearchBar.tsx:29 ~ handleOnChange ~ value', value);
+	};
+
+	const handleSubmit = () => {
 		// make a GET request to the server with the searchTerm as a query parameter
-		fetch(`/api/items?searchTerm=${searchTerm}`)
+		// fetch(`/api/items?searchTerm=${value}`)
+		fetch(`https://api.scryfall.com/cards/search?q=${searchTerm}`)
 			.then((res) => res.json())
-			.then((data) => {
-				console.log('🚀 ~ file: SearchBar.tsx:25 ~ .then ~ data', data);
+			.then((res) => {
+				console.log('🚀 ~ file: SearchBar.tsx:25 ~ .then ~ data', res);
+				const cards = res.data;
+				setSearchResults(cards);
 				// TODO setstate
 				// do something with the response, for example, set the filtered items to a state variable
 			})
@@ -31,11 +38,28 @@ const FilterCard = () => {
 
 	return (
 		<FilterCardStyles>
-			<TextField sx={{ml: 1, flex: 1, color: 'white'}} placeholder="Search..." onChange={handleOnClick} value={searchTerm} />
-
-			{/* <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
-      </IconButton> */}
+			<TextField
+				sx={{ml: 1, flex: 1, color: 'white'}}
+				placeholder="Search..."
+				onChange={handleOnChange}
+				value={searchTerm}
+				InputProps={{
+					endAdornment: (
+						<IconButton onClick={handleSubmit}>
+							<SearchIcon />
+						</IconButton>
+					),
+				}}
+				onKeyDown={(e) => {
+					if (e.key === 'Enter') {
+						handleSubmit();
+					}
+				}}
+			/>
+			{/* TODO move this map into the panel where you'll display search results */}
+			{searchResults.map((result) => {
+				return <div>{result.name}</div>;
+			})}
 		</FilterCardStyles>
 	);
 };

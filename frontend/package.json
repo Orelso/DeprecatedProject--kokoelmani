@@ -134,6 +134,7 @@
         "@mui/material": "^5.10.12",
         "@mui/styles": "^5.10.10",
         "axios": "^1.2.0",
+        "jotai": "^1.13.1",
         "styled-components": "^5.3.6"
     }
 }
