@@ -6,7 +6,7 @@ import { CardMedia, IconButton, Typography } from "@mui/material";
 import { DeleteOutlined } from "@mui/icons-material";
 import { makeStyles } from '@mui/styles';
 import { AnyCardCollection } from 'kokoelmani-shared/dist';
-import { DataGrid } from '@mui/x-data-grid';
+// import { DataGrid } from '@mui/x-data-grid';
 
 
 
@@ -56,7 +56,7 @@ const CollectionCard: React.FC<Props> = ({ collection, onDelete }) =>  {
                             <DeleteOutlined />
                         </IconButton>
                     }
-                    title={collection.newItem} sx={{color: "black", textAlign: "center"}}
+                    title={collection.name} sx={{color: "black", textAlign: "center"}}
                     subheader={collection.category} 
                 />
                 <CardMedia 

@@ -89,7 +89,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     const { searchTerm } = req.query;
     let itemsToShow = items;
     if (searchTerm) {
-      itemsToShow = items.filter(item => item.name.toLowerCase().includes(searchTerm));
+      itemsToShow = items.filter(item => item.name.toLowerCase());
     }
     res.json(itemsToShow);
   } catch (err) {
