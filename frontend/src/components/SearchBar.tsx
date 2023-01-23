@@ -60,7 +60,10 @@ const FilterCard = () => {
 			{searchResults.map((result) => {
 				return (
 					<div>
-						{result.name} {result.cmc}
+						{result.name}
+						<div>
+							<img src={result.image_uris?.small} alt="" />
+						</div>
 					</div>
 				);
 			})}
