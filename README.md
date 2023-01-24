@@ -1,7 +1,3 @@
-# Typescript React and Typescript monorepo setup
-
-This is work in progress and commands require NPM >= 7 
-
 ## install
 ```powershell
 npm i -workspaces
@@ -13,10 +9,12 @@ npm run dev:frontend
 npm run start -w frontend 
 ```
 
-- [Backend](./backend/README.md)
-- [Frontend](./frontend/README.md)
+# update and get updated code
+git push
+git pull
 
-check package scripts for run commands
+## local database
 
-[How to build own monorepo setup](./HowTo.md)
-
+docker run -d -p 27017:27017  --name mongodb mongo
+docker stop mongodb
+docker rm mongodb
