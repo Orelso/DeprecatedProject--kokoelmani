@@ -76,12 +76,16 @@ const FilterCardStyles = styled.div`
 	width: 90vw;
 	margin: auto;
 	transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+	marginT
 	&:hover {
 		transform: scale(1.05);
 	}
 	.MuiTextField-root {
 		align-items: center;
 		width: 100%;
+	}
+	.MuiInputBase-input {
+		width: 50vw
 	}
 `;
 

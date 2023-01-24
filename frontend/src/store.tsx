@@ -1,4 +1,5 @@
 import {atom} from 'jotai';
+
 const exampleMtgCard = {
 	object: 'card',
 	id: 'f1fb4d0b-fa3f-4794-9285-89ddb9ac21c3',

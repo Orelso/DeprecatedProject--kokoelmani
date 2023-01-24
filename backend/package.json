@@ -22,6 +22,7 @@
     "@avanio/variable-util": "^0.1.0",
     "@avanio/variable-util-node": "^0.1.0",
     "dotenv": "^16.0.3",
+    "jotai": "^1.13.1",
     "winston": "^3.8.2"
   }
 }
