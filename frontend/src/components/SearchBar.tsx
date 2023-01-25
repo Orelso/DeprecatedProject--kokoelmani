@@ -57,7 +57,8 @@ const FilterCard = () => {
 				}}
 			/>
 			{/* TODO move this map into the panel where you'll display search results */}
-			{searchResults.map((result) => {
+			{searchResults.map((result: any) => {
+				console.log(result)
 				return (
 					<div>
 						{result.name}
