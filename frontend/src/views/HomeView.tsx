@@ -69,9 +69,6 @@ export default function Home() {
 					},
 				}}
 			>
-				{/* {cardTables.map((row index) => {
-      <DailyCardTable key={row + index} />
-      })} */}
 
 				<DailyCardTable />
 				<DailyCardTable />
